@@ -116,21 +116,21 @@ section:last-child { border-bottom: none; }
   margin-bottom: 24px;
 }
 
-/* ── Education Cards (horizontal strips) ── */
-.edu-stack {
+/* ── Education Cards (horizontal, side by side) ── */
+.edu-row {
   display: flex;
-  flex-direction: column;
-  gap: 12px;
+  gap: 20px;
 }
 
 .edu-card {
+  flex: 1;
   background: var(--card-bg);
   border: 1px solid var(--border);
   border-radius: 8px;
   padding: 20px 28px;
   display: flex;
   align-items: baseline;
-  gap: 24px;
+  gap: 20px;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -164,7 +164,7 @@ section:last-child { border-bottom: none; }
   flex-shrink: 0;
 }
 
-/* ── Projects Grid ── */
+/* ── Projects Grid (3-column) ── */
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -263,7 +263,7 @@ section:last-child { border-bottom: none; }
   font-weight: 500;
 }
 
-/* ── Stack Section (4-column vertical lists) ── */
+/* ── Stack Section (4-column grid, vertical lists, no bullets) ── */
 .stack-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -282,9 +282,12 @@ section:last-child { border-bottom: none; }
 
 .stack-group ul {
   list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .stack-group li {
+  list-style: none;
   font-size: 0.88rem;
   color: var(--fg-muted);
   padding: 3px 0;
@@ -313,8 +316,7 @@ footer a {
 @media (max-width: 900px) {
   .projects-grid { grid-template-columns: repeat(2, 1fr); }
   .stack-grid { grid-template-columns: repeat(2, 1fr); }
-  .edu-card { flex-wrap: wrap; gap: 8px; }
-  .edu-card .edu-details { margin-left: 0; text-align: left; }
+  .edu-row { flex-direction: column; }
 }
 
 @media (max-width: 600px) {
@@ -325,7 +327,8 @@ footer a {
   .stack-grid { grid-template-columns: 1fr 1fr; }
   .project { padding: 24px; }
   section { padding: 36px 0; }
-  .edu-card { flex-direction: column; gap: 4px; padding: 20px 24px; }
+  .edu-card { flex-wrap: wrap; gap: 4px; padding: 16px 20px; }
+  .edu-card .edu-details { margin-left: 0; text-align: left; }
 }
 
 /* ── Animations ── */
