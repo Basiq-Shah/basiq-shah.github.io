@@ -16,12 +16,16 @@
   <!-- ── Header ── -->
   <header>
     <h1>Basiq Shah</h1>
-    <div class="subtitle">Data Engineer · San Francisco</div>
-    <p>
+    <div class="subtitle">Data Engineer · Westlake Village, CA</div>
+    <p class="bio">
       I build data pipelines and warehouse infrastructure. 3 years of experience across ETL systems, 
-      real-time streaming, and data quality — most recently at Guitar Center and UC Berkeley. 
-      Currently pursuing an MS in Computer Science at Georgia Tech.
+      real-time streaming, and data quality — most recently at Guitar Center and UC Berkeley.
     </p>
+    <div class="edu-inline">
+      <span>MS Computer Science, Georgia Tech — starting Fall 2026</span>
+      <span class="sep">·</span>
+      <span>BA Data Science, UC Berkeley</span>
+    </div>
     <div class="header-links">
       <a href="https://github.com/Basiq-Shah" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
@@ -41,122 +45,84 @@
   <!-- ── Projects ── -->
   <section>
     <div class="section-label">Projects</div>
+    <div class="projects-grid">
 
-    <!-- Megapack -->
-    <div class="project">
-      <h3>Megapack Quality Pipeline</h3>
-      <div class="project-type">Data Pipeline · Streaming · Quality Analytics</div>
-      <p>
-        Multi-source data pipeline simulating battery module assembly for a manufacturing environment. 
-        Cell production streams via Kafka, where each cell is graded using a weighted quality score 
-        (capacity, internal resistance, OCV, K-value). An assembly process matches cells to thermal 
-        assemblies, computes module efficiency, and applies time-based degradation — modeling 
-        real production constraints. Visualized through a Streamlit dashboard.
-      </p>
-      <div class="arch">
-        Kafka (KRaft) <span class="flow-arrow">→</span> Cell Consumer (quality scoring) <span class="flow-arrow">→</span> PostgreSQL <span class="flow-arrow">→</span> Assembly Process <span class="flow-arrow">→</span> Airflow DAG <span class="flow-arrow">→</span> Streamlit Dashboard
+      <!-- Megapack -->
+      <div class="project">
+        <h3>Megapack Quality Pipeline</h3>
+        <div class="project-type">Data Pipeline · Streaming · Quality Analytics</div>
+        <p>
+          Multi-source pipeline simulating battery module assembly. Cell production streams via 
+          Kafka, graded by a weighted quality score. An assembly process matches cells to thermal 
+          assemblies, computes module efficiency, and applies time-based degradation — modeling 
+          real manufacturing constraints.
+        </p>
+        <div class="arch">
+          Kafka <span class="flow-arrow">→</span> Consumer <span class="flow-arrow">→</span> PostgreSQL <span class="flow-arrow">→</span> Assembly <span class="flow-arrow">→</span> Airflow <span class="flow-arrow">→</span> Streamlit
+        </div>
+        <div class="tech-tags">
+          <span>Python</span>
+          <span>Kafka</span>
+          <span>PostgreSQL</span>
+          <span>Airflow</span>
+          <span>Docker</span>
+          <span>Streamlit</span>
+          <span>Plotly</span>
+        </div>
+        <a class="project-link" href="https://github.com/Basiq-Shah/megapack-quality-pipeline" target="_blank" rel="noopener">
+          View on GitHub
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
       </div>
-      <div class="tech-tags">
-        <span>Python</span>
-        <span>Kafka</span>
-        <span>PostgreSQL</span>
-        <span>Airflow</span>
-        <span>Docker</span>
-        <span>Streamlit</span>
-        <span>Plotly</span>
-      </div>
-      <a class="project-link" href="https://github.com/Basiq-Shah/megapack-quality-pipeline" target="_blank" rel="noopener">
-        View on GitHub
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-      </a>
-    </div>
 
-    <!-- Istanpolis -->
-    <div class="project">
-      <h3>Istanpolis Data Engineering Tools</h3>
-      <div class="project-type">Digital Humanities · ETL · Research Tooling</div>
-      <p>
-        Python tooling suite built for UC Berkeley's Istanpolis research project — documenting 
-        Greek communities of Istanbul across the 19th–20th centuries. Five tools spanning document 
-        parsing (Greek newspapers, Ottoman census registers), geocoding, cross-instance Wikibase 
-        entity migration, and transliteration-aware fuzzy matching across Ottoman Turkish, Greek, 
-        and modern Turkish scripts.
-      </p>
-      <div class="tech-tags">
-        <span>Python</span>
-        <span>pandas</span>
-        <span>geopandas</span>
-        <span>python-docx</span>
-        <span>REST APIs</span>
-        <span>Wikibase</span>
-        <span>regex</span>
+      <!-- Istanpolis -->
+      <div class="project">
+        <h3>Istanpolis Data Engineering Tools</h3>
+        <div class="project-type">Digital Humanities · ETL · Research Tooling</div>
+        <p>
+          Python tooling for UC Berkeley's Istanpolis research project — documenting Greek communities 
+          of Istanbul (19th–20th c.). Five tools: newspaper and census parsing, geocoding, 
+          cross-instance Wikibase entity migration, and transliteration-aware fuzzy matching across 
+          Ottoman Turkish, Greek, and modern Turkish.
+        </p>
+        <div class="tech-tags">
+          <span>Python</span>
+          <span>pandas</span>
+          <span>geopandas</span>
+          <span>python-docx</span>
+          <span>REST APIs</span>
+          <span>Wikibase</span>
+          <span>regex</span>
+        </div>
+        <a class="project-link" href="https://github.com/Basiq-Shah/Istanpolis" target="_blank" rel="noopener">
+          View on GitHub
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
       </div>
-      <a class="project-link" href="https://github.com/Basiq-Shah/Istanpolis" target="_blank" rel="noopener">
-        View on GitHub
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-      </a>
+
     </div>
   </section>
 
-  <!-- ── Stack ── -->
+  <!-- ── Stack (compact) ── -->
   <section>
     <div class="section-label">Technical Stack</div>
-    <div class="stack-grid">
+    <div class="stack-row">
       <div class="stack-group">
         <h4>Languages</h4>
-        <ul>
-          <li>Python</li>
-          <li>SQL</li>
-          <li>Java</li>
-          <li>JavaScript (React)</li>
-          <li>C/C++</li>
-        </ul>
+        <div class="stack-items">Python, SQL, Java, JavaScript (React), C/C++</div>
       </div>
       <div class="stack-group">
         <h4>Data & Streaming</h4>
-        <ul>
-          <li>Spark / PySpark</li>
-          <li>Kafka</li>
-          <li>Snowflake</li>
-          <li>Redshift</li>
-          <li>dbt</li>
-        </ul>
+        <div class="stack-items">Spark, Kafka, Snowflake, Redshift, dbt</div>
       </div>
       <div class="stack-group">
         <h4>Infrastructure</h4>
-        <ul>
-          <li>AWS</li>
-          <li>Docker</li>
-          <li>Kubernetes</li>
-          <li>Airflow</li>
-          <li>Git</li>
-        </ul>
+        <div class="stack-items">AWS, Docker, Kubernetes, Airflow, Git</div>
       </div>
       <div class="stack-group">
         <h4>Databases</h4>
-        <ul>
-          <li>PostgreSQL</li>
-          <li>MySQL</li>
-          <li>MongoDB</li>
-          <li>ElasticSearch</li>
-          <li>Redis</li>
-        </ul>
+        <div class="stack-items">PostgreSQL, MySQL, MongoDB, ElasticSearch, Redis</div>
       </div>
-    </div>
-  </section>
-
-  <!-- ── Education ── -->
-  <section>
-    <div class="section-label">Education</div>
-    <div class="edu-item">
-      <h4>M.S. Computer Science</h4>
-      <div class="edu-school">Georgia Institute of Technology</div>
-      <div class="edu-detail">Computing Systems · Expected 2029</div>
-    </div>
-    <div class="edu-item">
-      <h4>B.A. Data Science</h4>
-      <div class="edu-school">University of California, Berkeley</div>
-      <div class="edu-detail">2018 – 2022</div>
     </div>
   </section>
 
