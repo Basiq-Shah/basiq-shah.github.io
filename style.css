@@ -39,7 +39,7 @@ body {
 
 /* ── Header ── */
 header {
-  padding: 64px 0 48px;
+  padding: 64px 0 44px;
   border-bottom: 1px solid var(--border);
 }
 
@@ -57,7 +57,7 @@ header .subtitle {
   font-size: 0.78rem;
   color: var(--fg-muted);
   letter-spacing: 0.03em;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 }
 
 header .bio {
@@ -66,27 +66,72 @@ header .bio {
   max-width: 620px;
   line-height: 1.7;
   font-weight: 300;
-  margin-bottom: 24px;
+  margin-bottom: 18px;
 }
 
+/* ── Education (inline in header) ── */
+.edu-row {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.edu-card {
+  flex: 1;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 14px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.edu-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 2px 16px rgba(45, 90, 61, 0.05);
+}
+
+.edu-card h3 {
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  font-weight: 400;
+}
+
+.edu-card .edu-school {
+  font-size: 0.82rem;
+  color: var(--fg-muted);
+  font-weight: 300;
+}
+
+.edu-card .edu-details {
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  color: var(--fg-faint);
+  line-height: 1.5;
+  margin-top: 2px;
+}
+
+/* ── Header Links (compact) ── */
 .header-links {
   display: flex;
-  gap: 16px;
+  gap: 10px;
   flex-wrap: wrap;
 }
 
 .header-links a {
   font-family: var(--mono);
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   color: var(--accent);
   text-decoration: none;
-  padding: 5px 12px;
+  padding: 4px 10px;
   border: 1px solid var(--accent);
   border-radius: 4px;
   transition: all 0.2s ease;
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
 }
 
 .header-links a:hover {
@@ -95,8 +140,8 @@ header .bio {
 }
 
 .header-links a svg {
-  width: 13px;
-  height: 13px;
+  width: 12px;
+  height: 12px;
 }
 
 /* ── Section ── */
@@ -116,63 +161,15 @@ section:last-child { border-bottom: none; }
   margin-bottom: 24px;
 }
 
-/* ── Education Cards (horizontal, side by side) ── */
-.edu-row {
-  display: flex;
-  gap: 20px;
-}
-
-.edu-card {
-  flex: 1;
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 20px 28px;
-  display: flex;
-  align-items: baseline;
-  gap: 20px;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-.edu-card:hover {
-  border-color: var(--accent);
-  box-shadow: 0 2px 20px rgba(45, 90, 61, 0.06);
-}
-
-.edu-card h3 {
-  font-family: var(--serif);
-  font-size: 1.15rem;
-  font-weight: 400;
-  white-space: nowrap;
-  flex-shrink: 0;
-}
-
-.edu-card .edu-school {
-  font-size: 0.88rem;
-  color: var(--fg-muted);
-  font-weight: 300;
-  flex-shrink: 0;
-}
-
-.edu-card .edu-details {
-  font-family: var(--mono);
-  font-size: 0.7rem;
-  color: var(--fg-faint);
-  line-height: 1.5;
-  margin-left: auto;
-  text-align: right;
-  flex-shrink: 0;
-}
-
-/* ── Projects Grid (3-column) ── */
-.projects-grid {
+/* ── Card Grid (shared: projects & experience) ── */
+.card-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
 
-/* ── Project Card ── */
-.project {
+/* ── Card (shared base) ── */
+.card {
   background: var(--card-bg);
   border: 1px solid var(--border);
   border-radius: 8px;
@@ -182,19 +179,20 @@ section:last-child { border-bottom: none; }
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.project:hover {
+.card:hover {
   border-color: var(--accent);
   box-shadow: 0 2px 20px rgba(45, 90, 61, 0.06);
 }
 
-.project h3 {
+/* ── Project Card ── */
+.card h3 {
   font-family: var(--serif);
   font-size: 1.25rem;
   font-weight: 400;
   margin-bottom: 4px;
 }
 
-.project .project-type {
+.card .card-subtitle {
   font-family: var(--mono);
   font-size: 0.66rem;
   color: var(--fg-faint);
@@ -202,13 +200,39 @@ section:last-child { border-bottom: none; }
   letter-spacing: 0.02em;
 }
 
-.project p {
+.card p {
   color: var(--fg-muted);
   font-size: 0.85rem;
   line-height: 1.7;
   margin-bottom: 16px;
   font-weight: 300;
   flex-grow: 1;
+}
+
+.card ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex-grow: 1;
+  margin-bottom: 16px;
+}
+
+.card li {
+  list-style: none;
+  font-size: 0.82rem;
+  color: var(--fg-muted);
+  font-weight: 300;
+  line-height: 1.65;
+  padding: 4px 0;
+  padding-left: 14px;
+  position: relative;
+}
+
+.card li::before {
+  content: '–';
+  position: absolute;
+  left: 0;
+  color: var(--fg-faint);
 }
 
 .tech-tags {
@@ -228,7 +252,7 @@ section:last-child { border-bottom: none; }
   letter-spacing: 0.02em;
 }
 
-.project-link {
+.card-link {
   font-family: var(--mono);
   font-size: 0.73rem;
   color: var(--accent);
@@ -239,9 +263,9 @@ section:last-child { border-bottom: none; }
   transition: gap 0.2s ease;
 }
 
-.project-link:hover { gap: 10px; }
+.card-link:hover { gap: 10px; }
 
-.project-link svg {
+.card-link svg {
   width: 13px;
   height: 13px;
 }
@@ -261,6 +285,14 @@ section:last-child { border-bottom: none; }
 .arch .flow-arrow {
   color: var(--accent);
   font-weight: 500;
+}
+
+/* ── Experience Card extras ── */
+.card .card-date {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  color: var(--fg-faint);
+  margin-top: auto;
 }
 
 /* ── Stack Section (4-column grid, vertical lists, no bullets) ── */
@@ -294,6 +326,10 @@ section:last-child { border-bottom: none; }
   font-weight: 300;
 }
 
+.stack-group li::before {
+  content: none;
+}
+
 /* ── Footer ── */
 footer {
   padding: 32px 0 48px;
@@ -314,7 +350,7 @@ footer a {
 
 /* ── Responsive ── */
 @media (max-width: 900px) {
-  .projects-grid { grid-template-columns: repeat(2, 1fr); }
+  .card-grid { grid-template-columns: repeat(2, 1fr); }
   .stack-grid { grid-template-columns: repeat(2, 1fr); }
   .edu-row { flex-direction: column; }
 }
@@ -323,12 +359,11 @@ footer a {
   .container { padding: 0 20px; }
   header { padding: 48px 0 36px; }
   header h1 { font-size: 2.1rem; }
-  .projects-grid { grid-template-columns: 1fr; }
+  .card-grid { grid-template-columns: 1fr; }
   .stack-grid { grid-template-columns: 1fr 1fr; }
-  .project { padding: 24px; }
+  .card { padding: 24px; }
   section { padding: 36px 0; }
-  .edu-card { flex-wrap: wrap; gap: 4px; padding: 16px 20px; }
-  .edu-card .edu-details { margin-left: 0; text-align: left; }
+  .edu-card { padding: 14px 18px; }
 }
 
 /* ── Animations ── */

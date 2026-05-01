@@ -21,6 +21,21 @@
       I build data pipelines and warehouse infrastructure. 3 years of experience across ETL systems, 
       real-time streaming, and data quality — most recently at Guitar Center and UC Berkeley.
     </p>
+
+    <!-- Education (embedded in header) -->
+    <div class="edu-row">
+      <div class="edu-card">
+        <h3>M.S. Computer Science</h3>
+        <div class="edu-school">Georgia Institute of Technology</div>
+        <div class="edu-details">Computing Systems · Starting Fall 2026</div>
+      </div>
+      <div class="edu-card">
+        <h3>B.A. Data Science</h3>
+        <div class="edu-school">University of California, Berkeley</div>
+        <div class="edu-details">Physical Science Analytics · 2018 – 2022</div>
+      </div>
+    </div>
+
     <div class="header-links">
       <a href="https://github.com/Basiq-Shah" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
@@ -37,21 +52,63 @@
     </div>
   </header>
 
-  <!-- ── Education ── -->
+  <!-- ── Experience ── -->
   <section>
-    <div class="section-label">Education</div>
-    <div class="edu-row">
+    <div class="section-label">Experience</div>
+    <div class="card-grid">
 
-      <div class="edu-card">
-        <h3>M.S. Computer Science</h3>
-        <div class="edu-school">Georgia Institute of Technology</div>
-        <div class="edu-details">Computing Systems · Starting Fall 2026</div>
+      <!-- Guitar Center -->
+      <div class="card">
+        <h3>Guitar Center</h3>
+        <div class="card-subtitle">Data Engineer · Westlake Village, CA</div>
+        <ul>
+          <li>Resolved data discrepancies between an offshore EDW and a local AWS warehouse, reducing null values by 5% in new ingestion and 28% in legacy records.</li>
+          <li>Optimized stored procedures in the ETL pipeline, cutting data pull times by 3 hours and increasing Tableau availability by 37%.</li>
+          <li>Migrated backend pipelines from batch-refresh to live ingestion, enabling real-time Tableau dashboards.</li>
+          <li>Led a 6-month churn analysis initiative using Python and AWS, presenting findings to the COO with live dashboard reporting.</li>
+        </ul>
+        <div class="tech-tags">
+          <span>Python</span>
+          <span>AWS</span>
+          <span>SQL</span>
+          <span>Tableau</span>
+          <span>ETL</span>
+        </div>
+        <div class="card-date">Jul 2022 – Sep 2023</div>
       </div>
 
-      <div class="edu-card">
-        <h3>B.A. Data Science</h3>
-        <div class="edu-school">University of California, Berkeley</div>
-        <div class="edu-details">Physical Science Analytics · 2018 – 2022</div>
+      <!-- UC Berkeley -->
+      <div class="card">
+        <h3>UC Berkeley</h3>
+        <div class="card-subtitle">Software Engineer · Berkeley, CA</div>
+        <ul>
+          <li>Built a Python parser to process large-scale text streams and load structured output into a relational database for downstream analysis.</li>
+          <li>Designed a fuzzy search algorithm to query a cloud database, reducing manual data retrieval workload by ~60%.</li>
+          <li>Developed and deployed a REST API for FactGrid that automated key lookups, eliminating 15% of null values and improving data consistency.</li>
+        </ul>
+        <div class="tech-tags">
+          <span>Python</span>
+          <span>SQL</span>
+          <span>pandas</span>
+          <span>REST APIs</span>
+          <span>Wikibase</span>
+        </div>
+        <div class="card-date">Sep 2021 – Jun 2022, Jan 2024 – Dec 2024</div>
+      </div>
+
+      <!-- ViViVerse Studio -->
+      <div class="card">
+        <h3>ViViVerse Studio</h3>
+        <div class="card-subtitle">Software Developer · San Francisco, CA</div>
+        <ul>
+          <li>Built a small-scale adventure app using React and Firebase, implementing real-time state synchronization and user session management.</li>
+        </ul>
+        <div class="tech-tags">
+          <span>React</span>
+          <span>Firebase</span>
+          <span>JavaScript</span>
+        </div>
+        <div class="card-date">Dec 2025 – Mar 2026</div>
       </div>
 
     </div>
@@ -60,12 +117,12 @@
   <!-- ── Projects ── -->
   <section>
     <div class="section-label">Projects</div>
-    <div class="projects-grid">
+    <div class="card-grid">
 
       <!-- Megapack -->
-      <div class="project">
+      <div class="card">
         <h3>Megapack Quality Pipeline</h3>
-        <div class="project-type">Data Pipeline · Streaming · Quality Analytics</div>
+        <div class="card-subtitle">Data Pipeline · Streaming · Quality Analytics</div>
         <p>
           Multi-source pipeline simulating battery module assembly. Cell production streams via 
           Kafka, graded by a weighted quality score. An assembly process matches cells to thermal 
@@ -83,16 +140,16 @@
           <span>Streamlit</span>
           <span>Plotly</span>
         </div>
-        <a class="project-link" href="https://github.com/Basiq-Shah/megapack-quality-pipeline" target="_blank" rel="noopener">
+        <a class="card-link" href="https://github.com/Basiq-Shah/megapack-quality-pipeline" target="_blank" rel="noopener">
           View on GitHub
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
       </div>
 
       <!-- Istanpolis -->
-      <div class="project">
+      <div class="card">
         <h3>Istanpolis Data Engineering Tools</h3>
-        <div class="project-type">Digital Humanities · ETL · Research Tooling</div>
+        <div class="card-subtitle">Digital Humanities · ETL · Research Tooling</div>
         <p>
           Python tooling for UC Berkeley's Istanpolis research project — documenting Greek communities 
           of Istanbul (19th–20th c.). Five tools: newspaper and census parsing, geocoding, 
@@ -108,7 +165,7 @@
           <span>Wikibase</span>
           <span>regex</span>
         </div>
-        <a class="project-link" href="https://github.com/Basiq-Shah/Istanpolis" target="_blank" rel="noopener">
+        <a class="card-link" href="https://github.com/Basiq-Shah/Istanpolis" target="_blank" rel="noopener">
           View on GitHub
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
