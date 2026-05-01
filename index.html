@@ -21,11 +21,6 @@
       I build data pipelines and warehouse infrastructure. 3 years of experience across ETL systems, 
       real-time streaming, and data quality — most recently at Guitar Center and UC Berkeley.
     </p>
-    <div class="edu-inline">
-      <span>MS Computer Science, Georgia Tech — starting Fall 2026</span>
-      <span class="sep">·</span>
-      <span>BA Data Science, UC Berkeley</span>
-    </div>
     <div class="header-links">
       <a href="https://github.com/Basiq-Shah" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
@@ -42,20 +37,45 @@
     </div>
   </header>
 
+  <!-- ── Education ── -->
+  <section>
+    <div class="section-label">Education</div>
+    <div class="edu-grid">
+
+      <div class="card edu-card">
+        <h3>M.S. Computer Science</h3>
+        <div class="edu-school">Georgia Institute of Technology</div>
+        <div class="edu-details">
+          Computing Systems<br />
+          Starting Fall 2026
+        </div>
+      </div>
+
+      <div class="card edu-card">
+        <h3>B.A. Data Science</h3>
+        <div class="edu-school">University of California, Berkeley</div>
+        <div class="edu-details">
+          Domain Emphasis: Physical Science Analytics<br />
+          2018 – 2022
+        </div>
+      </div>
+
+    </div>
+  </section>
+
   <!-- ── Projects ── -->
   <section>
     <div class="section-label">Projects</div>
     <div class="projects-grid">
 
       <!-- Megapack -->
-      <div class="project">
+      <div class="card project">
         <h3>Megapack Quality Pipeline</h3>
         <div class="project-type">Data Pipeline · Streaming · Quality Analytics</div>
         <p>
           Multi-source pipeline simulating battery module assembly. Cell production streams via 
           Kafka, graded by a weighted quality score. An assembly process matches cells to thermal 
-          assemblies, computes module efficiency, and applies time-based degradation — modeling 
-          real manufacturing constraints.
+          assemblies, computes module efficiency, and applies time-based degradation.
         </p>
         <div class="arch">
           Kafka <span class="flow-arrow">→</span> Consumer <span class="flow-arrow">→</span> PostgreSQL <span class="flow-arrow">→</span> Assembly <span class="flow-arrow">→</span> Airflow <span class="flow-arrow">→</span> Streamlit
@@ -76,14 +96,14 @@
       </div>
 
       <!-- Istanpolis -->
-      <div class="project">
+      <div class="card project">
         <h3>Istanpolis Data Engineering Tools</h3>
         <div class="project-type">Digital Humanities · ETL · Research Tooling</div>
         <p>
           Python tooling for UC Berkeley's Istanpolis research project — documenting Greek communities 
           of Istanbul (19th–20th c.). Five tools: newspaper and census parsing, geocoding, 
-          cross-instance Wikibase entity migration, and transliteration-aware fuzzy matching across 
-          Ottoman Turkish, Greek, and modern Turkish.
+          Wikibase entity migration, and transliteration-aware fuzzy matching across Ottoman Turkish, 
+          Greek, and modern Turkish.
         </p>
         <div class="tech-tags">
           <span>Python</span>

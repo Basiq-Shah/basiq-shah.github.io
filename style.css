@@ -32,9 +32,9 @@ body {
 
 /* ── Layout ── */
 .container {
-  max-width: 960px;
+  max-width: 1120px;
   margin: 0 auto;
-  padding: 0 32px;
+  padding: 0 36px;
 }
 
 /* ── Header ── */
@@ -66,24 +66,7 @@ header .bio {
   max-width: 620px;
   line-height: 1.7;
   font-weight: 300;
-  margin-bottom: 14px;
-}
-
-.edu-inline {
-  font-family: var(--mono);
-  font-size: 0.75rem;
-  color: var(--fg-faint);
-  letter-spacing: 0.01em;
   margin-bottom: 24px;
-}
-
-.edu-inline span {
-  color: var(--fg-muted);
-}
-
-.edu-inline .sep {
-  margin: 0 8px;
-  color: var(--border);
 }
 
 .header-links {
@@ -133,15 +116,8 @@ section:last-child { border-bottom: none; }
   margin-bottom: 24px;
 }
 
-/* ── Projects Grid ── */
-.projects-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-}
-
-/* ── Project Card ── */
-.project {
+/* ── Card (shared between projects & education) ── */
+.card {
   background: var(--card-bg);
   border: 1px solid var(--border);
   border-radius: 8px;
@@ -151,21 +127,29 @@ section:last-child { border-bottom: none; }
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.project:hover {
+.card:hover {
   border-color: var(--accent);
   box-shadow: 0 2px 20px rgba(45, 90, 61, 0.06);
 }
 
+/* ── Projects Grid ── */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* ── Project Card ── */
 .project h3 {
   font-family: var(--serif);
-  font-size: 1.3rem;
+  font-size: 1.25rem;
   font-weight: 400;
   margin-bottom: 4px;
 }
 
 .project .project-type {
   font-family: var(--mono);
-  font-size: 0.68rem;
+  font-size: 0.66rem;
   color: var(--fg-faint);
   margin-bottom: 14px;
   letter-spacing: 0.02em;
@@ -173,7 +157,7 @@ section:last-child { border-bottom: none; }
 
 .project p {
   color: var(--fg-muted);
-  font-size: 0.88rem;
+  font-size: 0.85rem;
   line-height: 1.7;
   margin-bottom: 16px;
   font-weight: 300;
@@ -189,7 +173,7 @@ section:last-child { border-bottom: none; }
 
 .tech-tags span {
   font-family: var(--mono);
-  font-size: 0.64rem;
+  font-size: 0.62rem;
   background: var(--tag-bg);
   color: var(--fg-muted);
   padding: 3px 8px;
@@ -199,7 +183,7 @@ section:last-child { border-bottom: none; }
 
 .project-link {
   font-family: var(--mono);
-  font-size: 0.75rem;
+  font-size: 0.73rem;
   color: var(--accent);
   text-decoration: none;
   display: inline-flex;
@@ -219,10 +203,10 @@ section:last-child { border-bottom: none; }
 .arch {
   background: var(--tag-bg);
   border-radius: 4px;
-  padding: 12px 16px;
+  padding: 12px 14px;
   margin-bottom: 16px;
   font-family: var(--mono);
-  font-size: 0.66rem;
+  font-size: 0.64rem;
   line-height: 1.9;
   color: var(--fg-muted);
 }
@@ -232,7 +216,35 @@ section:last-child { border-bottom: none; }
   font-weight: 500;
 }
 
-/* ── Stack Section (compact) ── */
+/* ── Education Grid ── */
+.edu-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.edu-card h3 {
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  font-weight: 400;
+  margin-bottom: 4px;
+}
+
+.edu-card .edu-school {
+  font-size: 0.88rem;
+  color: var(--fg-muted);
+  font-weight: 300;
+  margin-bottom: 8px;
+}
+
+.edu-card .edu-details {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  color: var(--fg-faint);
+  line-height: 1.6;
+}
+
+/* ── Stack Section (compact, tighter headings) ── */
 .stack-row {
   display: flex;
   flex-wrap: wrap;
@@ -245,11 +257,12 @@ section:last-child { border-bottom: none; }
 
 .stack-group h4 {
   font-family: var(--mono);
-  font-size: 0.65rem;
+  font-size: 0.78rem;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--fg-faint);
-  margin-bottom: 6px;
+  letter-spacing: 0.08em;
+  color: var(--fg-muted);
+  font-weight: 500;
+  margin-bottom: 2px;
 }
 
 .stack-group .stack-items {
@@ -278,16 +291,20 @@ footer a {
 }
 
 /* ── Responsive ── */
-@media (max-width: 700px) {
+@media (max-width: 900px) {
+  .projects-grid { grid-template-columns: repeat(2, 1fr); }
+  .edu-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
   .container { padding: 0 20px; }
   header { padding: 48px 0 36px; }
   header h1 { font-size: 2.1rem; }
   .projects-grid { grid-template-columns: 1fr; }
-  .project { padding: 24px; }
+  .edu-grid { grid-template-columns: 1fr; }
+  .card { padding: 24px; }
   section { padding: 36px 0; }
   .stack-row { gap: 16px; }
-  .edu-inline .sep { display: none; }
-  .edu-inline span { display: block; margin-bottom: 2px; }
 }
 
 /* ── Animations ── */
@@ -302,4 +319,5 @@ header, section, footer {
 
 section:nth-child(2) { animation-delay: 0.06s; }
 section:nth-child(3) { animation-delay: 0.12s; }
-footer { animation-delay: 0.18s; }
+section:nth-child(4) { animation-delay: 0.18s; }
+footer { animation-delay: 0.24s; }
