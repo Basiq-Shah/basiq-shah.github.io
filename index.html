@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Basiq Shah — Data Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=JetBrains+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #FAFAF8;
+    --fg: #1A1A1A;
+    --fg-muted: #6B6B6B;
+    --fg-faint: #9A9A9A;
+    --accent: #2D5A3D;
+    --accent-light: #E8F0EB;
+    --border: #E2E0DC;
+    --card-bg: #FFFFFF;
+    --tag-bg: #F0EEEA;
+    --serif: 'Instrument Serif', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+    --mono: 'JetBrains Mono', 'SF Mono', monospace;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--fg);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background: var(--accent);
+    color: white;
+  }
+
+  /* ── Layout ── */
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ── Header ── */
+  header {
+    padding: 80px 0 60px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  header h1 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 3rem;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin-bottom: 12px;
+  }
+
+  header .subtitle {
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    color: var(--fg-muted);
+    letter-spacing: 0.03em;
+    margin-bottom: 24px;
+  }
+
+  header p {
+    font-size: 1.05rem;
+    color: var(--fg-muted);
+    max-width: 560px;
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  .header-links {
+    display: flex;
+    gap: 20px;
+    margin-top: 28px;
+    flex-wrap: wrap;
+  }
+
+  .header-links a {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    color: var(--accent);
+    text-decoration: none;
+    padding: 6px 14px;
+    border: 1px solid var(--accent);
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .header-links a:hover {
+    background: var(--accent);
+    color: white;
+  }
+
+  .header-links a svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  /* ── Section ── */
+  section {
+    padding: 56px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  section:last-child { border-bottom: none; }
+
+  .section-label {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--fg-faint);
+    margin-bottom: 32px;
+  }
+
+  /* ── Project Card ── */
+  .project {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 32px;
+    margin-bottom: 20px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .project:hover {
+    border-color: var(--accent);
+    box-shadow: 0 2px 20px rgba(45, 90, 61, 0.06);
+  }
+
+  .project h3 {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 4px;
+  }
+
+  .project .project-type {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--fg-faint);
+    margin-bottom: 16px;
+    letter-spacing: 0.02em;
+  }
+
+  .project p {
+    color: var(--fg-muted);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    font-weight: 300;
+  }
+
+  .tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 20px;
+  }
+
+  .tech-tags span {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    background: var(--tag-bg);
+    color: var(--fg-muted);
+    padding: 4px 10px;
+    border-radius: 3px;
+    letter-spacing: 0.02em;
+  }
+
+  .project-link {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    color: var(--accent);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: gap 0.2s ease;
+  }
+
+  .project-link:hover { gap: 10px; }
+
+  .project-link svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  /* ── Architecture Block ── */
+  .arch {
+    background: var(--tag-bg);
+    border-radius: 4px;
+    padding: 16px 20px;
+    margin-bottom: 20px;
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    line-height: 1.8;
+    color: var(--fg-muted);
+  }
+
+  .arch .flow-arrow {
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  /* ── Stack Section ── */
+  .stack-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 24px;
+  }
+
+  .stack-group h4 {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--fg-faint);
+    margin-bottom: 10px;
+  }
+
+  .stack-group ul {
+    list-style: none;
+  }
+
+  .stack-group li {
+    font-size: 0.9rem;
+    color: var(--fg-muted);
+    padding: 3px 0;
+    font-weight: 300;
+  }
+
+  /* ── Footer ── */
+  footer {
+    padding: 40px 0 60px;
+    text-align: center;
+  }
+
+  footer p {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--fg-faint);
+    letter-spacing: 0.02em;
+  }
+
+  footer a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  /* ── Education ── */
+  .edu-item {
+    margin-bottom: 20px;
+  }
+
+  .edu-item:last-child { margin-bottom: 0; }
+
+  .edu-item h4 {
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    font-weight: 400;
+    margin-bottom: 2px;
+  }
+
+  .edu-item .edu-school {
+    font-size: 0.9rem;
+    color: var(--fg-muted);
+    font-weight: 300;
+  }
+
+  .edu-item .edu-detail {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--fg-faint);
+    margin-top: 2px;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 600px) {
+    header { padding: 48px 0 40px; }
+    header h1 { font-size: 2.2rem; }
+    .project { padding: 24px; }
+    section { padding: 40px 0; }
+    .stack-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  /* ── Animations ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  header, section, footer {
+    animation: fadeUp 0.5s ease both;
+  }
+
+  section:nth-child(2) { animation-delay: 0.08s; }
+  section:nth-child(3) { animation-delay: 0.16s; }
+  section:nth-child(4) { animation-delay: 0.24s; }
+  footer { animation-delay: 0.32s; }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- ── Header ── -->
+  <header>
+    <h1>Basiq Shah</h1>
+    <div class="subtitle">Data Engineer · San Francisco</div>
+    <p>
+      I build data pipelines and warehouse infrastructure. 3 years of experience across ETL systems, 
+      real-time streaming, and data quality — most recently at Guitar Center and UC Berkeley. 
+      Currently pursuing an MS in Computer Science at Georgia Tech.
+    </p>
+    <div class="header-links">
+      <a href="https://github.com/Basiq-Shah" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        GitHub
+      </a>
+      <a href="https://linkedin.com/in/basiq-shah" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        LinkedIn
+      </a>
+      <a href="mailto:basiqshah@gmail.com">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Email
+      </a>
+    </div>
+  </header>
+
+  <!-- ── Projects ── -->
+  <section>
+    <div class="section-label">Projects</div>
+
+    <!-- Megapack -->
+    <div class="project">
+      <h3>Megapack Quality Pipeline</h3>
+      <div class="project-type">Data Pipeline · Streaming · Quality Analytics</div>
+      <p>
+        Multi-source data pipeline simulating battery module assembly for a manufacturing environment. 
+        Cell production streams via Kafka, where each cell is graded using a weighted quality score 
+        (capacity, internal resistance, OCV, K-value). An assembly process matches cells to thermal 
+        assemblies, computes module efficiency, and applies time-based degradation — modeling 
+        real production constraints. Visualized through a Streamlit dashboard.
+      </p>
+      <div class="arch">
+        Kafka (KRaft) <span class="flow-arrow">→</span> Cell Consumer (quality scoring) <span class="flow-arrow">→</span> PostgreSQL <span class="flow-arrow">→</span> Assembly Process <span class="flow-arrow">→</span> Airflow DAG <span class="flow-arrow">→</span> Streamlit Dashboard
+      </div>
+      <div class="tech-tags">
+        <span>Python</span>
+        <span>Kafka</span>
+        <span>PostgreSQL</span>
+        <span>Airflow</span>
+        <span>Docker</span>
+        <span>Streamlit</span>
+        <span>Plotly</span>
+      </div>
+      <a class="project-link" href="https://github.com/Basiq-Shah/megapack-quality-pipeline" target="_blank" rel="noopener">
+        View on GitHub
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+
+    <!-- Istanpolis -->
+    <div class="project">
+      <h3>Istanpolis Data Engineering Tools</h3>
+      <div class="project-type">Digital Humanities · ETL · Research Tooling</div>
+      <p>
+        Python tooling suite built for UC Berkeley's Istanpolis research project — documenting 
+        Greek communities of Istanbul across the 19th–20th centuries. Five tools spanning document 
+        parsing (Greek newspapers, Ottoman census registers), geocoding, cross-instance Wikibase 
+        entity migration, and transliteration-aware fuzzy matching across Ottoman Turkish, Greek, 
+        and modern Turkish scripts.
+      </p>
+      <div class="tech-tags">
+        <span>Python</span>
+        <span>pandas</span>
+        <span>geopandas</span>
+        <span>python-docx</span>
+        <span>REST APIs</span>
+        <span>Wikibase</span>
+        <span>regex</span>
+      </div>
+      <a class="project-link" href="https://github.com/Basiq-Shah/Istanpolis" target="_blank" rel="noopener">
+        View on GitHub
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- ── Stack ── -->
+  <section>
+    <div class="section-label">Technical Stack</div>
+    <div class="stack-grid">
+      <div class="stack-group">
+        <h4>Languages</h4>
+        <ul>
+          <li>Python</li>
+          <li>SQL</li>
+          <li>Java</li>
+          <li>JavaScript (React)</li>
+          <li>C/C++</li>
+        </ul>
+      </div>
+      <div class="stack-group">
+        <h4>Data & Streaming</h4>
+        <ul>
+          <li>Spark / PySpark</li>
+          <li>Kafka</li>
+          <li>Snowflake</li>
+          <li>Redshift</li>
+          <li>dbt</li>
+        </ul>
+      </div>
+      <div class="stack-group">
+        <h4>Infrastructure</h4>
+        <ul>
+          <li>AWS</li>
+          <li>Docker</li>
+          <li>Kubernetes</li>
+          <li>Airflow</li>
+          <li>Git</li>
+        </ul>
+      </div>
+      <div class="stack-group">
+        <h4>Databases</h4>
+        <ul>
+          <li>PostgreSQL</li>
+          <li>MySQL</li>
+          <li>MongoDB</li>
+          <li>ElasticSearch</li>
+          <li>Redis</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Education ── -->
+  <section>
+    <div class="section-label">Education</div>
+    <div class="edu-item">
+      <h4>M.S. Computer Science</h4>
+      <div class="edu-school">Georgia Institute of Technology</div>
+      <div class="edu-detail">Computing Systems · Expected 2029</div>
+    </div>
+    <div class="edu-item">
+      <h4>B.A. Data Science</h4>
+      <div class="edu-school">University of California, Berkeley</div>
+      <div class="edu-detail">2018 – 2022</div>
+    </div>
+  </section>
+
+  <!-- ── Footer ── -->
+  <footer>
+    <p>Built by Basiq Shah · <a href="mailto:basiqshah@gmail.com">basiqshah@gmail.com</a></p>
+  </footer>
+
+</div>
+
+</body>
+</html>
